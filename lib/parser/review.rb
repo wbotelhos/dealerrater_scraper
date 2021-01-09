@@ -49,19 +49,21 @@ module Parser
       end
     end
 
-    def list(page)
-      page.css('.review-entry').map do |review|
-        {
-          content:           content(review: review),
-          date:              date(review: review),
-          dealership_rating: dealership_rating(review: review),
-          employees_ratings: employees_ratings(review: review),
-          features_ratings:  features_ratings(review: review),
-          recommend:         recommend?(review: review),
-          title:             title(review: review),
-          username:          username(review: review),
-        }
-      end
+    def list(pages)
+      pages.map do |page|
+        page.css('.review-entry').map do |review|
+          {
+            content:           content(review: review),
+            date:              date(review: review),
+            dealership_rating: dealership_rating(review: review),
+            employees_ratings: employees_ratings(review: review),
+            features_ratings:  features_ratings(review: review),
+            recommend:         recommend?(review: review),
+            title:             title(review: review),
+            username:          username(review: review),
+          }
+        end
+      end.flatten
     end
 
     def recommend?(review:)
