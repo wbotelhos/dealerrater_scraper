@@ -25,6 +25,14 @@ def expected_output
         'Quality of Work'    => 5.0,
       },
 
+      ratings: {
+        content:           0,
+        dealership_rating: 5.0,
+        employees_ratings: 15.0,
+        features_ratings:  25.0,
+        recommend:         1
+      },
+
       recommend: true,
       title:     'David Varner really worker hard over a couple of days to...',
       username:  'Stephanie.veaseyste'
@@ -49,6 +57,14 @@ def expected_output
         "Overall Experience" => 5.0,
         "Pricing"            => 0.0,
         "Quality of Work"    => 0.0,
+      },
+
+      ratings: {
+        content:           0,
+        dealership_rating: 5.0,
+        employees_ratings: 5.0,
+        features_ratings:  15.0,
+        recommend:         1
       },
 
       recommend: true,

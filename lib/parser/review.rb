@@ -4,6 +4,7 @@ module Parser
   module Review
     module_function
 
+    require_relative 'review/calculator'
     require_relative 'sanitizer'
 
     def content(review:)

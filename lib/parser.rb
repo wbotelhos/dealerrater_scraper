@@ -9,5 +9,6 @@ module Parser
   def call
     Parser::Html.fetch(page: 1)
     .then(&Parser::Review.method(:list))
+    .then(&Parser::Review::Calculator.method(:call))
   end
 end
