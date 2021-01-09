@@ -4,10 +4,10 @@ module Parser
   module_function
 
   require_relative 'parser/html'
-  require_relative 'parser/sanitizer'
-  require_relative 'parser/url'
+  require_relative 'parser/review'
 
   def call
-    html = Parser::Html.fetch(page: 1)
+    Parser::Html.fetch(page: 1)
+    .then(&Parser::Review.method(:list))
   end
 end

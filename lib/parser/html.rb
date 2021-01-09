@@ -6,6 +6,8 @@ module Parser
 
     require 'nokogiri'
 
+    require_relative 'url'
+
     def fetch(page:)
       Nokogiri::HTML(File.open('spec/fixtures/page.html').read)
     end
