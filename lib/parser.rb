@@ -3,8 +3,9 @@
 module Parser
   module_function
 
-  require 'parser/html'
-  require 'parser/url'
+  require_relative 'parser/html'
+  require_relative 'parser/sanitizer'
+  require_relative 'parser/url'
 
   def call
     html = Parser::Html.fetch(page: 1)
