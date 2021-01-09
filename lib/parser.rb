@@ -10,5 +10,6 @@ module Parser
     Parser::Html.fetch(page: 1)
     .then(&Parser::Review.method(:list))
     .then(&Parser::Review::Calculator.method(:call))
+    .then(&Parser::Review::Sorter.method(:call)).reverse
   end
 end
