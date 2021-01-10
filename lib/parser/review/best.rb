@@ -5,8 +5,8 @@ module Parser
     module Best
       module_function
 
-      def call(reviews)
-        reviews.last(3).reverse
+      def call(reviews, display:)
+        reviews.last(display).reverse
       end
     end
   end

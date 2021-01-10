@@ -10,8 +10,8 @@ RSpec.describe Parser::Review::Best, '.call' do
     ]
   end
 
-  it 'returns the last 3 ordered desc' do
-    expect(described_class.call(reviews).map { |item| item[:name] }).to eq(%w[
+  it 'returns limited reviews ordering desc' do
+    expect(described_class.call(reviews, display: 3).map { |item| item[:name] }).to eq(%w[
       review-4
       review-3
       review-2

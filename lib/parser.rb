@@ -9,11 +9,11 @@ module Parser
   require_relative 'parser/html'
   require_relative 'parser/review'
 
-  def call(pages:, requester: URI)
+  def call(display: 3, pages: 5, requester: URI)
     Parser::Html.fetch(pages: pages, requester: requester)
     .then(&Parser::Review.method(:list))
     .then(&Parser::Review::Calculator.method(:call))
     .then(&Parser::Review::Sorter.method(:call))
-    .then(&Parser::Review::Best.method(:call))
+    .then { |data| Parser::Review::Best.call(data, display: display) }
   end
 end
