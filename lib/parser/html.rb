@@ -10,7 +10,11 @@ module Parser
 
     def fetch(pages:, requester:)
       pages.times.map do |page|
-        Nokogiri::HTML(requester.open(Parser::Url.for(page: page + 1), headers))
+        page_number = page + 1
+
+        ::Logger.log("[Parser::Html#fetch] Parsing page #{page_number}")
+
+        Nokogiri::HTML(requester.open(Parser::Url.for(page: page_number), headers))
       end
     end
 

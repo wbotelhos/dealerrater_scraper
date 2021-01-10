@@ -5,6 +5,7 @@ module Parser
 
   require 'open-uri'
 
+  require_relative 'logger'
   require_relative 'parser/html'
   require_relative 'parser/review'
 
