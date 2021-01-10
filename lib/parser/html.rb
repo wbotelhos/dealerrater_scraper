@@ -8,10 +8,14 @@ module Parser
 
     require_relative 'url'
 
-    def fetch(pages:)
+    def fetch(pages:, requester:)
       pages.times.map do |page|
-        Nokogiri::HTML(File.open("spec/fixtures/page#{page + 1}.html").read)
+        Nokogiri::HTML(requester.open(Parser::Url.for(page: page + 1), headers))
       end
+    end
+
+    def headers
+      { 'User-Agent' => 'Chrome/87.0.4280.141' }
     end
   end
 end

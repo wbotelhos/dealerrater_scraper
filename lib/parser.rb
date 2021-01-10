@@ -3,11 +3,13 @@
 module Parser
   module_function
 
+  require 'open-uri'
+
   require_relative 'parser/html'
   require_relative 'parser/review'
 
-  def call(pages:)
-    Parser::Html.fetch(pages: pages)
+  def call(pages:, requester: URI)
+    Parser::Html.fetch(pages: pages, requester: requester)
     .then(&Parser::Review.method(:list))
     .then(&Parser::Review::Calculator.method(:call))
     .then(&Parser::Review::Sorter.method(:call))
