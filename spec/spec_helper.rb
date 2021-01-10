@@ -113,13 +113,13 @@ def review_louann326
 end
 
 def page_content(number = 1)
-  read_content(:page, number)
+  read_content(file: :page, number: number)
 end
 
-def read_content(page, number)
-  Nokogiri::HTML(File.open("spec/fixtures/#{page}#{number}.html").read)
+def read_content(file:, number: nil)
+  Nokogiri::HTML(File.open("spec/fixtures/#{file}#{number}.html").read)
 end
 
 def review_content(number = 1)
-  read_content(:review, number)
+  read_content(file: :review, number: number)
 end

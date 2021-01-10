@@ -38,7 +38,7 @@ module Parser
       end
 
       def rating_for_employees_ratings(review)
-        review[:employees_ratings].sum { |item| item[:rating] }
+        review[:employees_ratings].sum { |item| item[:rating].to_f }
       end
 
       def rating_for_features_ratings(review)

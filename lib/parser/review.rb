@@ -14,6 +14,8 @@ module Parser
     end
 
     def convert_rating(value)
+      return unless value
+
       value =~ /\srating-(\d)(\d)/
 
       "#{$1}.#{$2}".to_f
@@ -32,7 +34,7 @@ module Parser
         review.css('.review-employee').each do |employee|
           result << {
             name:   employee.css('a').text.strip,
-            rating: convert_rating(employee.css('.rating-static').attr('class').value),
+            rating: convert_rating(employee.css('.rating-static')&.attr('class')&.value),
           }
         end
       end
