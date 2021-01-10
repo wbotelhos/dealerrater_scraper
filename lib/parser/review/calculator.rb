@@ -22,8 +22,8 @@ module Parser
       end
 
       def rating_for_content(review)
-        bad_words  = %w[bad]
-        good_words = %w[good nice]
+        bad_words  = ENV['BAD_WORDS'].split(',')
+        good_words = ENV['GOOD_WORDS'].split(',')
 
         review[:content].split(' ').inject(0) do |total, word|
           total += 1 if good_words.include?(word)

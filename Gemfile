@@ -2,12 +2,14 @@
 
 source 'https://rubygems.org'
 
+gem 'dotenv'
 gem 'nokogiri'
 
 group :development, :test do
-  gem 'pry-byebug'
+  gem 'pry-byebug', require: false
 end
 
 group :test do
-  gem 'rspec'
+  gem 'env_mock', require: false
+  gem 'rspec', require: false
 end

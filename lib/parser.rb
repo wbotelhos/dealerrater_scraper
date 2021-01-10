@@ -3,6 +3,7 @@
 module Parser
   module_function
 
+  require 'dotenv/load'
   require 'open-uri'
 
   require_relative 'logger'
