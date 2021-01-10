@@ -4,9 +4,9 @@ module Parser
   module Review
     module_function
 
-    require_relative '../icon'
     require_relative 'review/best'
     require_relative 'review/calculator'
+    require_relative 'review/printer'
     require_relative 'review/sorter'
     require_relative 'sanitizer'
 

@@ -15,5 +15,6 @@ module Parser
     .then(&Parser::Review::Calculator.method(:call))
     .then(&Parser::Review::Sorter.method(:call))
     .then { |data| Parser::Review::Best.call(data, display: display) }
+    .then(&Parser::Review::Printer.method(:call))
   end
 end
