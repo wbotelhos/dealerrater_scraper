@@ -3,9 +3,12 @@
 require 'support/requester'
 
 RSpec.describe Parser, '.call' do
+  let!(:slug) { 'McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685' }
+
   it 'prints the best reviews based on given criteria' do
     output = <<~HEREDOC
-    [Parser::Html#fetch] Parsing page 1
+    [Parser::Html#fetch] Fetching \
+    https://www.dealerrater.com/dealer/McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685/page1
 
 
     ----- 🥇 -----
@@ -34,6 +37,8 @@ RSpec.describe Parser, '.call' do
       5.0 | ⭐ ⭐ ⭐ ⭐ ⭐
     HEREDOC
 
-    expect { described_class.call(display: 1, pages: 1, requester: Requester) }.to output(output).to_stdout
+    expect do
+      described_class.call(display: 1, pages: 1, requester: Requester, slug: slug, source: 'dealer')
+    end.to output(output).to_stdout
   end
 end

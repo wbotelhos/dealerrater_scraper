@@ -8,13 +8,13 @@ module Parser
 
     require_relative 'url'
 
-    def fetch(pages:, requester:)
-      pages.times.map do |page|
-        page_number = page + 1
+    def fetch(pages:, requester:, slug:, source:)
+      pages.times.map do |index|
+        url = Parser::Url.for(page: index + 1, slug: slug, source: source)
 
-        ::Logger.log("[Parser::Html#fetch] Parsing page #{page_number}")
+        ::Logger.log("[Parser::Html#fetch] Fetching #{url}")
 
-        Nokogiri::HTML(requester.open(Parser::Url.for(page: page_number), headers))
+        Nokogiri::HTML(requester.open(url, headers))
       end
     end
 
