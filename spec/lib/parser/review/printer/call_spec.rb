@@ -10,7 +10,7 @@ RSpec.describe Parser::Review::Printer, '.call' do
         employees_ratings: [{ name: 'Washington', rating: 3.5 }, { name: 'Botelho', rating: 4.0 }],
         recommend:         true,
         title:             'Is the Elixir the new React.js?',
-        username:          'wbotelhos'
+        username:          'wbotelhos',
       },
 
       {
@@ -20,7 +20,7 @@ RSpec.describe Parser::Review::Printer, '.call' do
         employees_ratings: [{ name: 'Employee 1', rating: 1.1 }, { name: 'Employee 2', rating: 2.0 }],
         recommend:         false,
         title:             'Title 1',
-        username:          'username-1'
+        username:          'username-1',
       },
     ]
   end

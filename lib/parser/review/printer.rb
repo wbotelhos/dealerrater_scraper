@@ -37,7 +37,7 @@ module Parser
       def content(text, max_length)
         result = []
         total  = 0
-        words  = text.split(' ')
+        words  = text.split
 
         words.each do |word|
           result << word
@@ -62,7 +62,7 @@ module Parser
         review[:employees_ratings].map do |employee|
           [
             "  #{employee[:name]}",
-            "  #{employee[:rating]} | #{rating_to_stars(employee[:rating])}"
+            "  #{employee[:rating]} | #{rating_to_stars(employee[:rating])}",
           ].join("\n")
         end.join("\n\n")
       end
